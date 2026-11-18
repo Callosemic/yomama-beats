@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yomama-beats"
+version = "0.1.0"
+description = "A tiny drum machine, and the demo repo for inSetu."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Yomama Beats Contributors", email = "hello@insetu.dev" }]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+yomama-beats = "yomama_beats.cli:main"
+
+[tool.setuptools]
+packages = ["yomama_beats"]

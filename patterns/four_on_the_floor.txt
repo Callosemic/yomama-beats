@@ -1,0 +1,7 @@
+# four on the floor
+bpm: 124
+swing: 0.0
+
+kick   x . . . x . . . x . . . x . . .
+snare  . . . . x . . . . . . . x . . .
+hat    . . x . . . x . . . x . . . x .

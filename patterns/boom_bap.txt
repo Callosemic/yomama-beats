@@ -1,0 +1,7 @@
+# boom bap
+bpm: 90
+swing: 0.0
+
+kick   x . . . . . . x . . x . . . . .
+snare  . . . . x . . . . . . . x . . .
+hat    x x x x x x x x x x x x x x x x
