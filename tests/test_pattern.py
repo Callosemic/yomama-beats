@@ -30,6 +30,6 @@ def test_dump_round_trips():
 
 
 def test_rejects_unknown_cells():
-    """Cells other than x and . are an error."""
+    """Any cell that is not a hit or a rest is an error."""
     with pytest.raises(PatternError):
         parse("kick x o x .")
