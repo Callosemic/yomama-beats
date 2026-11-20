@@ -4,6 +4,7 @@ This index serves as the architectural map. It outlines the core directories and
 
 ```text
 yomama-beats/
+├── CODE_INDEX.md                   # Yomama Beats Code Index
 ├── README.md                       # Yomama Beats
 ├── patterns/                       # Drum patterns as text grids, one row per drum and one cell per sixteenth note.
 │   ├── README.md                   # Drum patterns as text grids, one row per drum and one cell per sixteenth note.
