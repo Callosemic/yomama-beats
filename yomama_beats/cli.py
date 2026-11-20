@@ -19,6 +19,7 @@ PLAYERS = (
 
 
 def find_pattern(name: str) -> Path:
+    """Resolve a pattern name or path to a file, looking in ./patterns too."""
     candidates = [Path(name), Path("patterns") / f"{name}.txt",
                   Path(__file__).resolve().parent.parent / "patterns" / f"{name}.txt"]
     for path in candidates:
@@ -28,6 +29,7 @@ def find_pattern(name: str) -> Path:
 
 
 def play_file(path: Path) -> bool:
+    """Play a WAV with the first system player found; False if there is none."""
     for player in PLAYERS:
         if shutil.which(player[0]):
             subprocess.run([*player, str(path)], check=False)
@@ -36,6 +38,7 @@ def play_file(path: Path) -> bool:
 
 
 def main(argv: list[str] | None = None) -> None:
+    """Entry point for `yomama-beats show|play`."""
     parser = argparse.ArgumentParser(prog="yomama-beats")
     sub = parser.add_subparsers(dest="command", required=True)
     for command in ("show", "play"):

@@ -23,6 +23,8 @@ REST = "."
 
 @dataclass
 class Pattern:
+    """A drum pattern: tempo, swing, and one row of hits per track."""
+
     name: str
     bpm: float = 90.0
     swing: float = 0.0
@@ -30,14 +32,16 @@ class Pattern:
 
     @property
     def steps(self) -> int:
+        """Length of the longest track, in sixteenth notes."""
         return max((len(cells) for cells in self.tracks.values()), default=0)
 
 
 class PatternError(ValueError):
-    pass
+    """A pattern file that can't be read."""
 
 
 def parse(text: str, name: str = "untitled") -> Pattern:
+    """Read a pattern from its text-grid form."""
     pattern = Pattern(name=name)
     for number, raw in enumerate(text.splitlines(), start=1):
         line = raw.strip()
@@ -62,11 +66,13 @@ def parse(text: str, name: str = "untitled") -> Pattern:
 
 
 def load(path: str | Path) -> Pattern:
+    """Read a pattern file; the file name becomes the pattern name."""
     path = Path(path)
     return parse(path.read_text(), name=path.stem)
 
 
 def dump(pattern: Pattern) -> str:
+    """Write a pattern back out as a text grid."""
     width = max((len(t) for t in pattern.tracks), default=0)
     lines = [f"bpm: {pattern.bpm:g}", f"swing: {pattern.swing:g}", ""]
     for track, cells in pattern.tracks.items():

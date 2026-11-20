@@ -10,6 +10,7 @@ SAMPLE_RATE = 22050
 
 
 def _decay(n: int, length: int, curve: float = 6.0) -> float:
+    """Exponential fade from 1 toward 0 over `length` samples."""
     return math.exp(-curve * n / length)
 
 

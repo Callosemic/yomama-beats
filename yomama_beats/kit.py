@@ -10,6 +10,7 @@ KIT = {
 
 
 def voice(track: str):
+    """The synth function for a track name; names the kit's drums if unknown."""
     try:
         return KIT[track]
     except KeyError:

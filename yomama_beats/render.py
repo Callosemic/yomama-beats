@@ -61,6 +61,7 @@ def mix(pattern: Pattern, bars: int = 2, bpm: float | None = None,
 
 
 def write_wav(samples: list[float], path: str | Path) -> Path:
+    """Save samples as a 16-bit mono WAV, normalized to avoid clipping."""
     path = Path(path)
     peak = max((abs(s) for s in samples), default=0.0) or 1.0
     scale = 0.9 * 32767 / max(peak, 1.0)
